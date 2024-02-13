@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import CountScreen from './components/CountScreen';
+import OperatorScreen from './components/OperatorScreen';
+import StoreScreen from './components/StoreScreen';
+import React from 'react';
+
+const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Forgalom" component={CountScreen} />
+        <Tab.Screen name="Operátor" component={OperatorScreen} />
+        <Tab.Screen name="Tárolás" component={StoreScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>    
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
